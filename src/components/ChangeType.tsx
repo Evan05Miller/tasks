@@ -15,10 +15,18 @@ export function ChangeType(): React.JSX.Element {
         }
     }
 
+    let q = "";
+
+    if (questionType === "multiple_choice_question") {
+        q = "Multiple Choice";
+    } else {
+        q = "Short Answer";
+    }
+
     return (
         <div>
             <Button onClick={changeType}>Change Type</Button>
-            <div>{questionType}</div>
+            <div>{q}</div>
         </div>
     );
 }
