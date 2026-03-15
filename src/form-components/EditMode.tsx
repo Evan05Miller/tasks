@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 
 export function EditMode(): React.JSX.Element {
-    const [editMode, setEditMode] = useState<boolean>(false);
-    const [name, setName] = useState<string>("Your Name");
-    const [isStudent, setIsStudent] = useState<boolean>(true);
+    const [editMode, setEditMode] = useState(false);
+    const [name, setName] = useState("Your Name");
+    const [isStudent, setIsStudent] = useState(true);
 
     return (
         <div>
             <h3>Edit Mode</h3>
 
             <div className="form-switch">
-                <label>
-                    Edit Mode
-                    <input
-                        type="checkbox"
-                        checked={editMode}
-                        onChange={(event) => {
-                            setEditMode(event.target.checked);
-                        }}
-                    />
-                </label>
+                <input
+                    type="checkbox"
+                    checked={editMode}
+                    onChange={(e) => {
+                        setEditMode(e.target.checked);
+                    }}
+                />
+                <label>Edit Mode</label>
             </div>
 
             {editMode ?
@@ -27,8 +25,8 @@ export function EditMode(): React.JSX.Element {
                     <input
                         type="text"
                         value={name}
-                        onChange={(event) => {
-                            setName(event.target.value);
+                        onChange={(e) => {
+                            setName(e.target.value);
                         }}
                     />
 
@@ -37,8 +35,8 @@ export function EditMode(): React.JSX.Element {
                         <input
                             type="checkbox"
                             checked={isStudent}
-                            onChange={(event) => {
-                                setIsStudent(event.target.checked);
+                            onChange={(e) => {
+                                setIsStudent(e.target.checked);
                             }}
                         />
                     </label>
